@@ -37,7 +37,7 @@ class SocialiteServiceProvider extends ServiceProvider
                 Commands\Install::class,
             ]);
             $this->publishes([
-                __DIR__.'/config/socialite.php' => config_path('socialite.php')
+                __DIR__.'config/socialite.php' => config_path('socialite.php')
             ], 'config');
         }
 
