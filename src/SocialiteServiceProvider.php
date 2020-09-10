@@ -42,7 +42,7 @@ class SocialiteServiceProvider extends ServiceProvider
             ], 'config');
         }
 
-        $this->loadRoutesFrom(__DIR__.'/routes/api.php');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
         $this->loadViewsFrom(__DIR__.'/resources/views', 'socialite');
 
