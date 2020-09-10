@@ -2,9 +2,9 @@
 
 namespace Henri\Socialite\Http\Controllers;
 
+// use \App\User;
 use Socialite;
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
@@ -32,7 +32,7 @@ class GitlabController extends Controller
 
         // dd($gitlabUser);
 
-        $user = User::updateOrCreate([
+        $user = \App\User::updateOrCreate([
             'email' => $gitlabUser->getEmail(),
             'name' => $gitlabUser->getName(),
             'provider_id' => $gitlabUser->getId()
