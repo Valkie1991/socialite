@@ -38,7 +38,7 @@ class SocialiteServiceProvider extends ServiceProvider
             ]);
 
             $this->publishes([
-                __DIR__.'/../config/socialite.php' => config_path('socialite.php')
+                __DIR__.'/config/socialite.php' => config_path('socialite.php')
             ], 'config');
         }
 
