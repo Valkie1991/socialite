@@ -29,7 +29,7 @@ class GitlabController extends Controller
     {
         $gitlabUser = Socialite::driver('gitlab')->user();
 
-        // dd($gitlabUser);
+        dd($gitlabUser);
 
         $user = \App\User::updateOrCreate([
             'email' => $gitlabUser->getEmail(),
@@ -37,8 +37,9 @@ class GitlabController extends Controller
             'provider_id' => $gitlabUser->getId()
         ]);
 
-        Auth::login($user, true);
 
+        $test = Auth::login($user, true);
+        dd($test);
         return redirect($this->redirectTo);
     }
 }
