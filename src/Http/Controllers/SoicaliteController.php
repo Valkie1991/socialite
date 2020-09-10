@@ -10,15 +10,19 @@ use App\Http\Controllers\Controller;
 class GitlabController extends Controller
 {
     protected $redirectTo = '/dashboard';
+
+    public function redirectToGitlab() {
+        return Socialite::driver('gitlab')->redirect();
+    }
     /**
      * Redirect the user to the GitHub authentication page.
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
-    {
-        return Socialite::driver('gitlab')->redirect();
-    }
+    // public function redirectToProvider() redirectToGitlab() { }
+    // {
+    //     return Socialite::driver('gitlab')->redirect();
+    // }
 
     /**
      * Obtain the user information from GitHub.
@@ -29,7 +33,20 @@ class GitlabController extends Controller
     {
         $gitlabUser = Socialite::driver('gitlab')->user();
 
-        // dd($gitlabUser);
+        $user = \App\User::updateOrCreate([
+            'email' => $gitlabUser->getEmail(),
+            'name' => $gitlabUser->getName(),
+            'provider_id' => $gitlabUser->getId()
+        ]);
+
+        Auth::login($user, true);
+
+        return redirect($this->redirectTo);
+    }
+
+    public function handleProviderCallback()
+    {
+        $gitlabUser = Socialite::driver('gitlab')->user();
 
         $user = \App\User::updateOrCreate([
             'email' => $gitlabUser->getEmail(),
