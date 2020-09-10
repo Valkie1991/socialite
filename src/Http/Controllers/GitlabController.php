@@ -6,7 +6,7 @@ use Socialite;
 use Illuminate\Http\Request;
 // use App\Models\API\Auth\User;
 use Illuminate\Support\Facades\Auth;
-// use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 class GitlabController extends Controller
 {
