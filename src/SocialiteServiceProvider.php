@@ -36,10 +36,6 @@ class SocialiteServiceProvider extends ServiceProvider
             $this->commands([
                 Commands\Install::class,
             ]);
-
-            $this->publishes([
-                __DIR__.'/config/socialite.php' => config_path('socialite.php')
-            ], 'config');
         }
 
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
