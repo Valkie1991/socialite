@@ -29,8 +29,6 @@ class GitlabController extends Controller
     {
         $gitlabUser = Socialite::driver('gitlab')->user();
 
-        dd($gitlabUser);
-
         $user = \App\User::updateOrCreate([
             'email' => $gitlabUser->getEmail(),
             'name' => $gitlabUser->getName(),
