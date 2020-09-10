@@ -1,0 +1,28 @@
+{
+    "name": "henri/socialite",
+    "description": "Login with all the socials at the moment",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Henri",
+            "email": "valkhenri1991@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/socialite": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Henri\\Socialite\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Henri\\Socialite\\SocialiteServiceProvider"
+            ]
+        }
+    }
+}
