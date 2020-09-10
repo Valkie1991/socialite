@@ -4,7 +4,7 @@ namespace Henri\Socialite\Http\Controllers;
 
 use Socialite;
 use Illuminate\Http\Request;
-// use App\Models\API\Auth\User;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
